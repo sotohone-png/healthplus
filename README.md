@@ -18,7 +18,7 @@
 **AI가 사용자의 건강 고민을 분석해 맞춤 건강기능식품을 추천하는 플랫폼입니다.**
 기획·개발·**QA**를 1인이 전 과정 진행한 개인 프로젝트입니다.
 
-📄 [전체 QA 문서 (테스트 계획서 / 버그 리포트 / 트러블슈팅)](https://app.notion.com/p/Portfolio-39c3e8c6f43380319c8fe31509b5c5e7) &nbsp;·&nbsp; 🔗 [GitHub Actions](https://github.com/sotohone-png/healthplus/actions)
+📄 [전체 QA 문서 (테스트 계획서 / 버그 리포트 / 트러블슈팅)](#) &nbsp;·&nbsp; 🔗 [GitHub Actions](https://github.com/sotohone-png/healthplus/actions)
 
 </div>
 
@@ -117,18 +117,16 @@
 
 ## 🖼️ 화면 미리보기
 
-<!-- 아래 표에 실제 스크린샷을 추가하세요. 예: ![메인](./docs/images/main.png) -->
-
 | 메인 페이지 | AI 건강 상담 | 상품 상세 (AI 설명) |
 |---|---|---|
-|<img width="1914" height="952" alt="image" src="https://github.com/user-attachments/assets/9321a148-b0f0-41cf-8263-6eff65445ac8" />
-|<img width="1921" height="944" alt="image" src="https://github.com/user-attachments/assets/ca3fef45-b1e6-493f-8ad4-cea03709c47e" />
-|<img width="1904" height="951" alt="image" src="https://github.com/user-attachments/assets/a25dba6a-c7a7-4ac4-9589-feb4b7b7b13f" />
-|
+| <img width="250" height="320" alt="image" src="https://github.com/user-attachments/assets/82292117-6fd4-4dfd-a64e-4d16c69b5722" />
+ | <img width="250" height="320" alt="image" src="https://github.com/user-attachments/assets/fb0c8c17-26fa-4ae0-8939-4bf853a639d1" />
+ |<img width="250" height="320" alt="image" src="https://github.com/user-attachments/assets/9acd3997-6329-438c-a969-ddb1debdb0cd" />
+ |
 
 | 장바구니 | 관리자 - 공지사항 | 마이페이지 |
 |---|---|---|
-| _스크린샷 추가 예정_ | _스크린샷 추가 예정_ | _스크린샷 추가 예정_ |
+| <img src="여기에_장바구니_이미지_경로" width="280"> | <img src="여기에_공지사항_이미지_경로" width="280"> | <img src="여기에_마이페이지_이미지_경로" width="280"> |
 
 ---
 
