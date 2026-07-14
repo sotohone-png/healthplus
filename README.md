@@ -8,10 +8,12 @@
 ![Postman](https://img.shields.io/badge/Postman-FF6C37?logo=postman&logoColor=white)
 ![Playwright](https://img.shields.io/badge/Playwright-2EAD33?logo=playwright&logoColor=white)
 
+[![HealthPlus CI](https://github.com/sotohone-png/healthplus/actions/workflows/ci.yml/badge.svg)](https://github.com/sotohone-png/healthplus/actions/workflows/ci.yml)
+
 > AI가 사용자의 건강 고민을 분석해 맞춤 건강기능식품을 추천하는 플랫폼입니다.
 > 기획·개발·**QA**를 1인이 전 과정 진행한 개인 프로젝트입니다.
 
-📄 **전체 QA 문서(테스트 계획서 / 버그 리포트 / 트러블슈팅)**: [Notion 링크](https://app.notion.com/p/QA-38bcd4abdd28801698a1cb7a1a97c6cc) 
+📄 **전체 QA 문서(테스트 계획서 / 버그 리포트 / 트러블슈팅)**: [Notion 링크](#) <!-- 공유 설정 후 링크 교체 -->
 
 ---
 
@@ -137,12 +139,15 @@ ANTHROPIC_API_KEY=본인의_API_키
 
 ## 🧰 QA 자동화 테스트 실행
 
-### Postman
-1. `docs/HealthPlus_API.postman_collection.json` Import
+### GitHub Actions (CI)
+`main` 브랜치에 push하거나 PR을 올리면, GitHub Actions가 자동으로 백엔드·프론트엔드·DB를 띄운 뒤 Postman(API)과 Playwright(E2E) 테스트를 순서대로 실행합니다. 실행 결과는 저장소의 **Actions 탭**에서 확인할 수 있습니다. (워크플로우 정의: `.github/workflows/ci.yml`)
+
+### Postman (수동 실행)
+1. `ci/HealthPlus_API.postman_collection.json` Import
 2. Collection Variables에서 테스트 계정 정보 설정
 3. "01. 회원/인증" 폴더 실행 후 나머지 폴더 자유 실행
 
-### Playwright
+### Playwright (수동 실행)
 ```bash
 cd e2e
 npm install
