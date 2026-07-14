@@ -10,10 +10,14 @@ INSERT INTO member (email, pw, nickname, social) VALUES
   ('test2@test.com', '$2a$10$ZsPyoHUPV0byBidbV5LWLO1q8kvvS5OjX.y6y5qn3MWirVEtpHUT.', '테스트유저', false),
   ('test@test.com',  '$2a$10$gVNfFNnIfqsc4e4yyjuLFOSMllHrllydBZCgJtn0FbtpoWu4DNyHW', '관리자 테스트', false);
 
+-- 주의: Member.memberRoleList는 @Enumerated(EnumType.STRING) 없이
+-- @ElementCollection만 붙어있어, JPA가 기본값인 EnumType.ORDINAL(정수)로
+-- 저장합니다. MemberRole enum 선언 순서(USER=0, MANAGER=1, ADMIN=2)에
+-- 맞춰 문자열이 아닌 정수로 넣어야 합니다.
 INSERT INTO member_member_role_list (member_email, member_role_list) VALUES
-  ('test2@test.com', 'USER'),
-  ('test@test.com',  'USER'),
-  ('test@test.com',  'MANAGER');
+  ('test2@test.com', 0),  -- USER
+  ('test@test.com',  0),  -- USER
+  ('test@test.com',  1);  -- MANAGER
 
 -- Playwright/Postman 테스트가 pno=1 상품을 기준으로 동작하므로,
 -- 빈 DB에 첫 상품으로 등록해 pno가 1이 되도록 합니다.
