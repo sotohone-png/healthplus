@@ -1,0 +1,13 @@
+# Backend
+backend/build/
+backend/.gradle/
+backend/uploads/
+backend/src/main/resources/application-local.properties
+
+# Frontend
+frontend/node_modules/
+frontend/dist/
+
+# 공통
+.env
+*.log
