@@ -119,10 +119,7 @@
 
 | 메인 페이지 | AI 건강 상담 | 상품 상세 (AI 설명) |
 |---|---|---|
-| <img width="250" height="320" alt="image" src="https://github.com/user-attachments/assets/82292117-6fd4-4dfd-a64e-4d16c69b5722" />
- | <img width="250" height="320" alt="image" src="https://github.com/user-attachments/assets/fb0c8c17-26fa-4ae0-8939-4bf853a639d1" />
- |<img width="250" height="320" alt="image" src="https://github.com/user-attachments/assets/9acd3997-6329-438c-a969-ddb1debdb0cd" />
- |
+| <img src="여기에_메인페이지_이미지_경로" width="280"> | <img src="여기에_AI상담_이미지_경로" width="280"> | <img src="여기에_상품상세_이미지_경로" width="280"> |
 
 | 장바구니 | 관리자 - 공지사항 | 마이페이지 |
 |---|---|---|
