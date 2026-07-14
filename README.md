@@ -121,9 +121,9 @@
 
 | 메인 페이지 | AI 건강 상담 | 상품 상세 (AI 설명) |
 |---|---|---|
-|<img width="1914" height="952" alt="image" src="https://github.com/user-attachments/assets/9321a148-b0f0-41cf-8263-6eff65445ac8" />|
-|<img width="1921" height="944" alt="image" src="https://github.com/user-attachments/assets/ca3fef45-b1e6-493f-8ad4-cea03709c47e" />|
-|<img width="1904" height="951" alt="image" src="https://github.com/user-attachments/assets/a25dba6a-c7a7-4ac4-9589-feb4b7b7b13f" />|
+|<img width="1914" height="952" alt="image" src="https://github.com/user-attachments/assets/9321a148-b0f0-41cf-8263-6eff65445ac8" />
+|<img width="1921" height="944" alt="image" src="https://github.com/user-attachments/assets/ca3fef45-b1e6-493f-8ad4-cea03709c47e" />
+|<img width="1904" height="951" alt="image" src="https://github.com/user-attachments/assets/a25dba6a-c7a7-4ac4-9589-feb4b7b7b13f" />
 |
 
 | 장바구니 | 관리자 - 공지사항 | 마이페이지 |
