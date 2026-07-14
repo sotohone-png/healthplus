@@ -20,7 +20,9 @@ const LoginComponent = () => {
 
   const handleClickLogin = () => {
     doLogin(loginParam).then((data) => {
-      if (data.error) {
+      // 로그인 실패 시 loginPostAsync가 rejected 되면서 payload가 undefined로 옴
+      // (BUG-023 수정으로 백엔드가 401을 정상 반환하게 되면서 이 분기가 실제로 타게 됨)
+      if (!data || data.error) {
         alert("이메일과 패스워드를 다시 확인하세요");
       } else {
         alert("로그인 성공");
@@ -30,8 +32,10 @@ const LoginComponent = () => {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center"
-         style={{ background: "#f8fafb" }}>
+    <div
+      className="min-h-screen flex items-center justify-center"
+      style={{ background: "#f8fafb" }}
+    >
       <div className="w-full max-w-sm bg-white rounded-2xl shadow-sm border border-gray-100 p-8">
         <div className="text-center mb-8">
           <h1 className="text-2xl font-bold mb-1">
@@ -65,7 +69,8 @@ const LoginComponent = () => {
         <button
           onClick={handleClickLogin}
           className="w-full py-3 rounded-xl text-white font-medium text-sm mb-4"
-          style={{ background: "#1a1a2e" }}>
+          style={{ background: "#1a1a2e" }}
+        >
           로그인
         </button>
         <div className="flex items-center gap-3 mb-4">
@@ -77,11 +82,16 @@ const LoginComponent = () => {
         <div className="flex justify-center gap-4 mt-6">
           <span
             onClick={() => navigate("/member/join")}
-            className="text-xs text-gray-400 cursor-pointer hover:text-gray-600">
+            className="text-xs text-gray-400 cursor-pointer hover:text-gray-600"
+          >
             회원가입
           </span>
-          <span className="text-xs text-gray-400 cursor-pointer hover:text-gray-600">아이디 찾기</span>
-          <span className="text-xs text-gray-400 cursor-pointer hover:text-gray-600">비밀번호 찾기</span>
+          <span className="text-xs text-gray-400 cursor-pointer hover:text-gray-600">
+            아이디 찾기
+          </span>
+          <span className="text-xs text-gray-400 cursor-pointer hover:text-gray-600">
+            비밀번호 찾기
+          </span>
         </div>
       </div>
     </div>
