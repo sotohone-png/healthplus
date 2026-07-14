@@ -85,6 +85,7 @@ public class ProductController {
   }
 
   @PutMapping("/{pno}")
+  @PreAuthorize("hasRole('MANAGER')")
   public Map<String, String> modify(@PathVariable(name = "pno") Long pno, ProductDTO productDTO) {
     productDTO.setPno(pno);
     ProductDTO oldProductDTO = productService.get(pno);
@@ -106,6 +107,7 @@ public class ProductController {
   }
 
   @DeleteMapping("/{pno}")
+  @PreAuthorize("hasRole('MANAGER')")
   public Map<String, String> remove(@PathVariable("pno") Long pno) {
     List<String> oldFileNames = productService.get(pno).getUploadFileNames();
     productService.remove(pno);
