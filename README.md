@@ -1,4 +1,8 @@
-# HealthPlus — AI 건강기능식품 커머스 플랫폼
+<div align="center">
+
+# HealthPlus
+
+### AI 건강기능식품 커머스 플랫폼
 
 ![React](https://img.shields.io/badge/React-18-61DAFB?logo=react&logoColor=white)
 ![Redux Toolkit](https://img.shields.io/badge/Redux_Toolkit-764ABC?logo=redux&logoColor=white)
@@ -8,19 +12,40 @@
 ![Postman](https://img.shields.io/badge/Postman-FF6C37?logo=postman&logoColor=white)
 ![Playwright](https://img.shields.io/badge/Playwright-2EAD33?logo=playwright&logoColor=white)
 
-> AI가 사용자의 건강 고민을 분석해 맞춤 건강기능식품을 추천하는 플랫폼입니다.
-> 기획·개발·**QA**를 1인이 전 과정 진행한 개인 프로젝트입니다.
+[![HealthPlus CI](https://github.com/sotohone-png/healthplus/actions/workflows/ci.yml/badge.svg)](https://github.com/sotohone-png/healthplus/actions/workflows/ci.yml)
+![Last Commit](https://img.shields.io/github/last-commit/sotohone-png/healthplus)
+![License](https://img.shields.io/badge/License-MIT-blue.svg)
 
-📄 **전체 QA 문서(테스트 계획서 / 버그 리포트 / 트러블슈팅)**: [Notion 링크](https://app.notion.com/p/QA-38bcd4abdd28801698a1cb7a1a97c6cc) 
+**AI가 사용자의 건강 고민을 분석해 맞춤 건강기능식품을 추천하는 플랫폼입니다.**
+기획·개발·**QA**를 1인이 전 과정 진행한 개인 프로젝트입니다.
+
+📄 [전체 QA 문서 (테스트 계획서 / 버그 리포트 / 트러블슈팅)](#) &nbsp;·&nbsp; 🔗 [GitHub Actions](https://github.com/sotohone-png/healthplus/actions)
+
+</div>
+
+---
+
+## 📑 목차
+
+- [프로젝트 개요](#-프로젝트-개요)
+- [기술 스택](#-기술-스택)
+- [QA 활동 요약](#-qa-활동-요약)
+- [개발 방식에 대해](#-개발-방식에-대해)
+- [이 프로젝트를 통해 배운 것](#-이-프로젝트를-통해-배운-것)
+- [주요 기능](#-주요-기능)
+- [화면 미리보기](#️-화면-미리보기)
+- [실행 방법](#️-실행-방법)
+- [QA 자동화 테스트 실행](#-qa-자동화-테스트-실행)
+- [프로젝트 구조](#-프로젝트-구조)
 
 ---
 
 ## 📌 프로젝트 개요
 
-| 항목 | 내용 |
-|---|---|
-| 개발 기간 | 2026.06.26 ~ 2026.08.15 |
-| 개발 인원 | 1인 |
+| 항목      | 내용                                               |
+| --------- | -------------------------------------------------- |
+| 개발 기간 | 2026.06.26 ~ 2026.08.15                            |
+| 개발 인원 | 1인                                                |
 | 개발 목적 | AI 기반 맞춤 건강기능식품 추천 및 구매 서비스 구현 |
 
 ## 🛠 기술 스택
@@ -46,24 +71,24 @@
 
 이 프로젝트에서 가장 중점을 둔 부분은 **"기능이 동작하는가"를 넘어서 "왜 실패하는가, 어떻게 재발을 막는가"** 였습니다.
 
-| 지표 | 결과 |
-|---|---|
-| 테스트 케이스 | 71건 작성 (기능/부정/보안 테스트) |
-| 발견 및 해결한 버그 | 21건 (Critical 3건 · Major 13건 · Minor 5건) |
-| API 자동화 테스트 | Postman으로 40여 개 엔드포인트 검증 |
-| E2E 자동화 테스트 | Playwright로 9개 핵심 시나리오 자동화 |
-| 회귀 테스트 | 버그 수정 6건에 대해 Postman/Playwright로 재검증 |
+| 지표                | 결과                                             |
+| ------------------- | ------------------------------------------------ |
+| 테스트 케이스       | 71건 작성 (기능/부정/보안 테스트)                |
+| 발견 및 해결한 버그 | 21건 (Critical 3건 · Major 13건 · Minor 5건)     |
+| API 자동화 테스트   | Postman으로 40여 개 엔드포인트 검증              |
+| E2E 자동화 테스트   | Playwright로 9개 핵심 시나리오 자동화            |
+| 회귀 테스트         | 버그 수정 6건에 대해 Postman/Playwright로 재검증 |
 
 ### 🔍 발견한 주요 이슈 (일부)
 
 단순 UI 버그를 넘어, **인증/인가(Authorization) 관련 취약점**을 다수 발견하고 해결했습니다.
 
-| 이슈 | 심각도 | 요약 |
-|---|---|---|
-| JWT 인증 우회 | Critical | 필터가 HTTP 메소드를 구분하지 않아, 조회(GET)만 허용해야 할 예외 규칙이 수정/삭제(PUT/DELETE) 요청까지 인증을 건너뛰게 만들던 문제 |
-| 권한 우회(IDOR) | Critical | 리소스 삭제 시 클라이언트가 보낸 파라미터만으로 소유권을 판단하여, 로그인한 사용자가 파라미터 조작만으로 타인의 리소스를 삭제할 수 있던 문제 |
-| 예외 처리 오분류 | Major | 인증 필터의 예외 처리 범위가 넓어, 인증과 무관한 서버 내부 오류까지 "인증 실패"로 잘못 보고되던 문제 |
-| 데이터 정합성 | Major | AI 생성 텍스트 저장 시 컬럼 길이 초과로 인한 등록 실패 |
+| 이슈             | 심각도   | 요약                                                                                                                                         |
+| ---------------- | -------- | -------------------------------------------------------------------------------------------------------------------------------------------- |
+| JWT 인증 우회    | Critical | 필터가 HTTP 메소드를 구분하지 않아, 조회(GET)만 허용해야 할 예외 규칙이 수정/삭제(PUT/DELETE) 요청까지 인증을 건너뛰게 만들던 문제           |
+| 권한 우회(IDOR)  | Critical | 리소스 삭제 시 클라이언트가 보낸 파라미터만으로 소유권을 판단하여, 로그인한 사용자가 파라미터 조작만으로 타인의 리소스를 삭제할 수 있던 문제 |
+| 예외 처리 오분류 | Major    | 인증 필터의 예외 처리 범위가 넓어, 인증과 무관한 서버 내부 오류까지 "인증 실패"로 잘못 보고되던 문제                                         |
+| 데이터 정합성    | Major    | AI 생성 텍스트 저장 시 컬럼 길이 초과로 인한 등록 실패                                                                                       |
 
 > 각 이슈의 재현 절차, 근본 원인 분석, 해결 방법, 회귀 테스트 결과는 Notion 문서에 상세히 기록되어 있습니다.
 
@@ -91,6 +116,20 @@
 
 ---
 
+## 🖼️ 화면 미리보기
+
+<!-- 아래 표에 실제 스크린샷을 추가하세요. 예: ![메인](./docs/images/main.png) -->
+
+| 메인 페이지          | AI 건강 상담         | 상품 상세 (AI 설명)  |
+| -------------------- | -------------------- | -------------------- |
+| _스크린샷 추가 예정_ | _스크린샷 추가 예정_ | _스크린샷 추가 예정_ |
+
+| 장바구니             | 관리자 - 공지사항    | 마이페이지           |
+| -------------------- | -------------------- | -------------------- |
+| _스크린샷 추가 예정_ | _스크린샷 추가 예정_ | _스크린샷 추가 예정_ |
+
+---
+
 ## 🚀 주요 기능
 
 - 회원가입 / 로그인 (JWT 기반 인증, 토큰 갱신)
@@ -107,19 +146,23 @@
 ## ⚙️ 실행 방법
 
 ### Backend
+
 ```bash
 cd back
 ./gradlew clean bootRun
 ```
+
 - Java 21, Spring Boot 3, MariaDB 필요
 - 기본 포트: `8080`
 
 ### Frontend
+
 ```bash
 cd front
 npm install
 npm run dev
 ```
+
 - Node.js, Vite 필요
 - 기본 포트: `3000`
 
@@ -137,12 +180,18 @@ ANTHROPIC_API_KEY=본인의_API_키
 
 ## 🧰 QA 자동화 테스트 실행
 
-### Postman
-1. `docs/HealthPlus_API.postman_collection.json` Import
+### GitHub Actions (CI)
+
+`main` 브랜치에 push하거나 PR을 올리면, GitHub Actions가 자동으로 백엔드·프론트엔드·DB를 띄운 뒤 Postman(API)과 Playwright(E2E) 테스트를 순서대로 실행합니다. 실행 결과는 저장소의 **Actions 탭**에서 확인할 수 있습니다. (워크플로우 정의: `.github/workflows/ci.yml`)
+
+### Postman (수동 실행)
+
+1. `ci/HealthPlus_API.postman_collection.json` Import
 2. Collection Variables에서 테스트 계정 정보 설정
 3. "01. 회원/인증" 폴더 실행 후 나머지 폴더 자유 실행
 
-### Playwright
+### Playwright (수동 실행)
+
 ```bash
 cd e2e
 npm install
@@ -156,6 +205,25 @@ npm run test:ui
 
 ```
 healthplus/
-├── back/     # Spring Boot 백엔드
-└── front/    # React 프론트엔드
+├── .github/
+│   └── workflows/
+│       └── ci.yml        # GitHub Actions CI 파이프라인
+├── back/                 # Spring Boot 백엔드
+├── front/                # React 프론트엔드
+├── ci/                   # CI용 Postman 컬렉션 · DB 시드 데이터
+└── e2e/                  # Playwright E2E 테스트
 ```
+
+---
+
+<div align="center">
+
+## 📬 Contact
+
+관련 문의나 피드백은 언제든 환영합니다.
+
+[![GitHub](https://img.shields.io/badge/GitHub-sotohone--png-181717?logo=github&logoColor=white)](https://github.com/sotohone-png)
+
+<sub>© 2026 HealthPlus. Licensed under the MIT License.</sub>
+
+</div>
