@@ -46,7 +46,7 @@ jobs:
       - name: Set up Node
         uses: actions/setup-node@v4
         with:
-          node-version: "20"
+          node-version: "22"
 
       # 4. 백엔드 빌드
       - name: Build backend
@@ -78,6 +78,10 @@ jobs:
       # 6. 테스트용 계정/상품 데이터 주입
       #    login.spec.js, cart.spec.js 등이 의존하는 test2@test.com(USER),
       #    test@test.com(MANAGER), pno=1 상품을 매번 동일하게 만들어줍니다.
+      #    GitHub Actions 기본 러너에는 mariadb 클라이언트가 없어서 먼저 설치합니다.
+      - name: Install MariaDB client
+        run: sudo apt-get update && sudo apt-get install -y mariadb-client
+
       - name: Seed test data
         run: |
           mariadb -h127.0.0.1 -uhealthuser -phealthuser healthdb < ci/seed.sql
