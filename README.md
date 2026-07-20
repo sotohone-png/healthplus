@@ -19,7 +19,7 @@
 **AI가 사용자의 건강 고민을 분석해 맞춤 건강기능식품을 추천하는 플랫폼입니다.**
 기획·개발·**QA**를 1인이 전 과정 진행한 개인 프로젝트입니다.
 
-📄 [전체 QA 문서 (테스트 계획서 / 버그 리포트 / 트러블슈팅)](#) &nbsp;·&nbsp; 🔗 [GitHub Actions](https://github.com/sotohone-png/healthplus/actions)
+📄 [전체 QA 문서 (테스트 계획서 / 버그 리포트 / 트러블슈팅)](https://peach-wedelia-658.notion.site/QA-d283e8c6f43383acb77101aad290de7a) &nbsp;·&nbsp; 🔗 [GitHub Actions](https://github.com/sotohone-png/healthplus/actions)
 
 </div>
 
